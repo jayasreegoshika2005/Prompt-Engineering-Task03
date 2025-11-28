@@ -1,26 +1,14 @@
-# Task 03 — Prompting for Task Automation
+# Prompt Engineering - Task 03  
+This project demonstrates a semi-automated system for transforming user inputs using a structured prompt and a Python script.
 
-Contents:
-- prompt.txt      ← final prompt design
-- examples.json   ← three input→output examples
-- Transform.py    ← simple heuristic script that converts notes/bullets -> JSON
-- README.md       ← this file (with reflection)
-
-How to run the script:
-1. Put your notes into a file, e.g. notes.txt
-2. Run:
-   python3 Transform.py notes.txt
-   OR:
-   cat notes.txt | python3 Transform.py
-
-What to submit:
-- prompt.txt
-- examples.json
-- Transform.py
-- README.md
-
-Reflection on prompt iteration and debugging:
-- Initial prompt produced inconsistent outputs (sometimes plain text, sometimes extra commentary). I added strict JSON output requirements and explicit field names (title, bullets, summary, structured) to force consistent structure.
-- I added parsing rules for bullets and a fallback for paragraph inputs (split into sentences) to handle mixed input types.
-- While testing the transform script, I found key-value patterns (e.g., "Key: Value") were easiest to extract reliably, so the script now normalizes such pairs to snake_case keys.
-- Future improvements: call an LLM using prompt.txt for more natural summaries and smarter key inference; add unit tests for the parser.
+## Files Included  
+1. *prompt.txt* – The designed prompt used to transform input.  
+2. *examples.json* – Three validated input–output example pairs.  
+3. *transform.py* – A Python script that accepts user input and returns the transformed JSON output.  
+4. *README.md* – Documentation + reflection.
+5. ## Reflection  
+During this task, I refined the prompt multiple times to make it more consistent and predictable.  
+Initially, the output structure varied, so I added strict JSON formatting instructions.  
+I also created example input–output pairs to test whether the prompt behaved consistently.  
+Finally, I wrote a short Python script to automate the transformation and verify the prompt's reliability.  
+This iterative process helped me understand how small prompt changes affect the output quality.
