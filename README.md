@@ -1,26 +1,26 @@
-# Prompt-Engineering-Task03
-"SkillCraft Technology Task-03-Prompting for Task Automation
 # Task 03 — Prompting for Task Automation
 
 Contents:
-- prompt.txt      ← final clear prompt to give to an LLM
-- examples.json   ← three input->output examples
-- transform.py    ← simple heuristic script that converts notes/bullets -> JSON
+- prompt.txt      ← final prompt design
+- examples.json   ← three input→output examples
+- Transform.py    ← simple heuristic script that converts notes/bullets -> JSON
+- README.md       ← this file (with reflection)
 
 How to run the script:
 1. Put your notes into a file, e.g. notes.txt
 2. Run:
-   python3 transform.py notes.txt
+   python3 Transform.py notes.txt
    OR:
-   cat notes.txt | python3 transform.py
+   cat notes.txt | python3 Transform.py
 
 What to submit:
-- prompt.txt (the prompt you designed)
-- examples.json (three working examples)
-- transform.py (showing a reproducible semi-automation approach)
-- README.md (this file)
+- prompt.txt
+- examples.json
+- Transform.py
+- README.md
 
-Reflection / Iteration notes:
-- The prompt enforces deterministic JSON output (title, bullets, summary, structured) — this helps automated parsing.
-- Iterations: refined bullet parsing rules, added fallback for paragraphs -> bullets, and explicit structured key extraction.
-- Future improvements: replace transform.py with an LLM call (OpenAI/other) using prompt.txt to get higher-quality summaries and better inferred keys.
+Reflection on prompt iteration and debugging:
+- Initial prompt produced inconsistent outputs (sometimes plain text, sometimes extra commentary). I added strict JSON output requirements and explicit field names (title, bullets, summary, structured) to force consistent structure.
+- I added parsing rules for bullets and a fallback for paragraph inputs (split into sentences) to handle mixed input types.
+- While testing the transform script, I found key-value patterns (e.g., "Key: Value") were easiest to extract reliably, so the script now normalizes such pairs to snake_case keys.
+- Future improvements: call an LLM using prompt.txt for more natural summaries and smarter key inference; add unit tests for the parser.
