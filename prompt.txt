@@ -1,32 +1,25 @@
-
 Task: Prompting for Task Automation
 
 Goal:
-- Accept user input in two forms:
-  1) raw notes (free text or bullet points)
-  2) short list of facts (bulleted)
-- Produce one of:
-  A) concise summary (3–5 sentences)
-  B) structured JSON extracted from bullets (keys and values)
-  C) uniform transformed format: JSON with fields {title, bullets[], summary}
+- Accept user input as bullets or paragraph.
+- Produce JSON with fields:
+  - title (string)
+  - bullets (array of strings)
+  - summary (3–5 sentence string)
+  - structured (object with key -> value)
 
-Instructions for model:
-1. If input contains bullet markers (“-” or “•”), parse bullets into an array called "bullets".
-2. Create a "title":
-   - If the first line is short (<=6 words), use it as title.
-   - Otherwise use the first bullet (trim to 6 words) as title.
-3. Produce a "summary" field: 3–5 complete sentences that capture main points.
-4. Produce "structured" field — an object with simple key-value pairs inferred from the bullets.
-   - If a bullet contains “X: Y” or “Key - Value”, use that as key/value.
-   - Otherwise infer keys like "point1", "point2" with the bullet text as values.
-5. Output MUST be valid JSON (top-level object with keys: title, bullets, summary, structured).
-6. If the input is plain paragraph (no bullets), extract 4–6 short bullets first, then follow steps 2–5.
-7. Keep language concise, avoid adding extra commentary.
+Rules:
+1. If input has bullets (lines starting with -, •, *), parse them into "bullets".
+2. If input is a paragraph, break into up to 6 short bullets by sentence.
+3. Title: use the first short line (<=6 words) or first bullet truncated to 6 words.
+4. Summary: 3–5 concise sentences summarizing the main points.
+5. structured: extract "Key: Value" or "Key - Value" pairs; otherwise create point_# keys.
+6. Output must be valid JSON only — no explanatory text.
 
-Example output format:
+Output format example:
 {
   "title": "....",
-  "bullets": ["bullet1", "bullet2", ...],
-  "summary": "3-5 sentence summary here.",
-  "structured": {"key1":"value1", "key2":"value2"}
+  "bullets": ["..."],
+  "summary": "...",
+  "structured": {"key":"value"}
 }
