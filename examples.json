@@ -1,4 +1,3 @@
-
 [
   {
     "input": "- Project: University voting system\n- Feature: Signup + email verification\n- DB: SQLite\n- Deadline: 2025-12-05",
@@ -10,12 +9,12 @@
         "DB: SQLite",
         "Deadline: 2025-12-05"
       ],
-      "summary": "This project is a university voting system with a signup and email verification feature. It uses SQLite as the database and targets a deadline of 2025-12-05. The focus is on secure registration and reliable vote storage. Implementation should prioritize simple deployment and data integrity.",
+      "summary": "This project is a university voting system with a signup and email verification feature. It uses SQLite as the database and targets a deadline of 2025-12-05. The focus is on secure registration and reliable vote storage.",
       "structured": {
-        "Project": "University voting system",
-        "Feature": "Signup + email verification",
-        "DB": "SQLite",
-        "Deadline": "2025-12-05"
+        "project": "University voting system",
+        "feature": "Signup + email verification",
+        "db": "SQLite",
+        "deadline": "2025-12-05"
       }
     }
   },
@@ -29,31 +28,29 @@
         "Passwords hashed",
         "Add admin panel for results"
       ],
-      "summary": "Design a minimal login page that supports email-based password reset. Ensure passwords are stored hashed for security. Provide an admin panel to view and manage results. The architecture should balance simplicity and secure handling of credentials.",
+      "summary": "Design a minimal login page that supports email-based password reset. Ensure passwords are stored hashed for security. Provide an admin panel to view and manage results.",
       "structured": {
         "login": "minimal",
         "forgot_password": "email",
-        "password_storage": "hashed",
-        "admin_panel": "results management"
+        "passwords_hashed": "Passwords hashed",
+        "admin_panel": "results"
       }
     }
   },
   {
-    "input": "Paragraph input: The team needs to automate summarizing meeting notes and converting bullet lists into JSON for analytics. It should handle multiple small inputs and produce consistent JSON outputs. Output must include a short summary and key-value extraction.",
+    "input": "Paragraph: The team needs to automate summarizing meeting notes and converting bullet lists into JSON for analytics. It should handle multiple small inputs and produce consistent JSON outputs. Output must include a short summary and key-value extraction.",
     "output": {
-      "title": "Automate summarizing meeting notes",
+      "title": "The team needs to automate summarizing",
       "bullets": [
-        "Automate summarizing meeting notes",
-        "Convert bullet lists into JSON for analytics",
-        "Handle multiple small inputs",
-        "Produce consistent JSON outputs",
-        "Include short summary and key-value extraction"
+        "The team needs to automate summarizing meeting notes and converting bullet lists into JSON for analytics.",
+        "It should handle multiple small inputs and produce consistent JSON outputs.",
+        "Output must include a short summary and key-value extraction."
       ],
-      "summary": "The goal is to automate summarization of meeting notes and transform bullet lists into JSON for downstream analytics. The system must handle many small inputs and produce consistent JSON structures including a brief summary and extracted key-value pairs. Reliability and formatting consistency are priorities. This enables easier analysis and integration with other tools.",
+      "summary": "The goal is to automate summarization of meeting notes and convert bullet lists into JSON for analytics. The system must handle multiple small inputs and produce consistent JSON structures including a brief summary and extracted key-value pairs.",
       "structured": {
-        "goal": "summarize notes and convert bullets to JSON",
-        "requirements": "handle multiple small inputs, produce consistent JSON",
-        "outputs": "summary and key-value extraction"
+        "point_1": "The team needs to automate summarizing meeting notes and converting bullet lists into JSON for analytics.",
+        "point_2": "It should handle multiple small inputs and produce consistent JSON outputs.",
+        "point_3": "Output must include a short summary and key-value extraction."
       }
     }
   }
